@@ -8,7 +8,7 @@ export default {
 
 <template>
   <section id="comments">
-    <h2>Comments Section</h2>
+    <h2>Comments</h2>
     <ul>
       <li v-for="comment in comments" :key="comment.id">{{ comment.body }}</li>
     </ul>
