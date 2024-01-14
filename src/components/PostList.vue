@@ -1,7 +1,7 @@
 <script>
-import axios from 'axios';
-import PostItem from './PostItem.vue';
-import Comments from './Comments.vue';
+import axios from "axios";
+import PostItem from "./PostItem.vue";
+import Comments from "./Comments.vue";
 
 export default {
   components: {
@@ -20,22 +20,24 @@ export default {
   },
   methods: {
     fetchPosts() {
-      axios.get('https://dummyjson.com/posts')
-        .then(response => {
+      axios
+        .get("https://dummyjson.com/posts")
+        .then((response) => {
           this.posts = response.data.posts;
           console.log(this.posts);
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error);
         });
     },
     fetchComments(postId) {
       this.selectedPostId = postId;
-      axios.get(`https://dummyjson.com/posts/${postId}/comments`)
-        .then(response => {
+      axios
+        .get(`https://dummyjson.com/posts/${postId}/comments`)
+        .then((response) => {
           this.comments = response.data.comments;
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(error);
         });
     },
@@ -44,24 +46,32 @@ export default {
 </script>
 
 <template>
-  <div>
-    <table>
+  <div class="table-border-div table-responsive">
+    <table class="table table-hover align-middle">
       <thead>
-        <tr>
+        <tr class="text-center">
           <th>ID</th>
           <th>Title</th>
-          <th>Body</th>
-          <th>User ID</th>
+          <th style="width: 70%">Body</th>
+          <th>UID</th>
           <th>Comments</th>
         </tr>
       </thead>
-      <tbody>
-        <post-item v-for="post in posts" :key="post.id" :post="post" @fetch-comments="fetchComments" />
+      <tbody class="table-group-divider">
+        <post-item
+          v-for="post in posts"
+          :key="post.id"
+          :post="post"
+          @fetch-comments="fetchComments"
+        />
       </tbody>
     </table>
     <comments v-if="selectedPostId" :comments="comments" />
   </div>
 </template>
 
-<style>
+<style scoped>
+.table-border-div {
+  padding: 0px 10px 0px 10px;
+}
 </style>
