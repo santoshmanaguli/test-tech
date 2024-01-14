@@ -1,9 +1,9 @@
 <script>
-import Home from './components/Home.vue';
+import PostList from './components/PostList.vue';
 
 export default{
   components:{
-    Home
+    PostList
   }
 }
 
@@ -11,7 +11,7 @@ export default{
 
 <template>
   <div>
-    <Home />
+    <PostList />
   </div>
 </template>
 
