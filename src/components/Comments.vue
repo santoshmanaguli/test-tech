@@ -7,10 +7,10 @@ export default {
 </script>
 
 <template>
-  <div>
-    <h2>Comments</h2>
+  <section id="comments">
+    <h2>Comments Section</h2>
     <ul>
       <li v-for="comment in comments" :key="comment.id">{{ comment.body }}</li>
     </ul>
-  </div>
+  </section>
 </template>
