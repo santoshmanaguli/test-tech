@@ -1,8 +1,8 @@
 <script>
 import PostList from './components/PostList.vue';
 
-export default{
-  components:{
+export default {
+  components: {
     PostList
   }
 }
@@ -15,5 +15,8 @@ export default{
   </div>
 </template>
 
-<style scoped>
+<style>
+.cursor-pointer{
+  cursor: pointer;
+}
 </style>
